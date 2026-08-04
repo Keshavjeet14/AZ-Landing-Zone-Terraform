@@ -3,6 +3,10 @@ rg27 = {
     name     = "rg-preprod"
     location = "Central India"
   }
+  rg2 = {
+    name     = "rg-humana"
+    location = "Central India"
+  }
 }
 
 vnet27 = {
