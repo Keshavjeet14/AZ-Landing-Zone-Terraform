@@ -102,6 +102,9 @@ jobs:
           format: table
           exit-code: "0"
           severity: CRITICAL,HIGH,MEDIUM,LOW
+      
+      - name: Restore Workspace Permissions
+        run: sudo chown -R "$(id -u):$(id -g)" "$GITHUB_WORKSPACE"
 
       - name: Run Gitleaks
         continue-on-error: true
