@@ -77,19 +77,19 @@ module "key_vault" {
 }
 
 module "key_vault_role_assignment" {
-  depends_on = [module.key_vault]
+  depends_on     = [module.key_vault]
   source         = "../../child_module/azurerm_key_vault_role_assignment"
   keyvaultrole27 = var.keyvaultrole27
 }
 
 module "key_vault_secret" {
-  depends_on = [module.key_vault_role_assignment]
+  depends_on       = [module.key_vault_role_assignment]
   source           = "../../child_module/azurerm_key_vault_secret"
   keyvaultsecret27 = var.keyvaultsecret27
 }
 
 module "virtual_machine" {
-  depends_on = [module.key_vault_secret,module.network_interface]
-  source = "../../child_module/azurerm_linux_virtual_machine"
-  vms    = var.vms
+  depends_on = [module.key_vault_secret, module.network_interface]
+  source     = "../../child_module/azurerm_linux_virtual_machine"
+  vms        = var.vms
 }

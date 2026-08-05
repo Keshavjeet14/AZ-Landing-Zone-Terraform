@@ -1,7 +1,7 @@
 variable "nic27" {}
 
 resource "azurerm_network_interface" "nic" {
-  for_each = var.nic27
+  for_each            = var.nic27
   name                = each.value.name
   location            = each.value.location
   resource_group_name = each.value.resource_group_name
